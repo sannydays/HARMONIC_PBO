@@ -18,11 +18,23 @@
                         
                         <Label wrapText="true" text="Pada fase ini, kadar estrogen dan progesteron sangat rendah. Dinding rahim meluruh sehingga terjadi menstruasi. Energi biasanya menurun dan mood lebih sensitif."/>
                         
-                        <Label text="Tips:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
-                        <Label wrapText="true" text="- Minum air hangat&#10;- Kompres hangat&#10;- Hindari kafein&#10;- Istirahat cukup"/>
+                        <Label text="Tips Saat Menstruasi:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Minum air hangat atau teh herbal (chamomile/jahe)&#10;- Kompres hangat di perut bawah untuk meredakan kram&#10;- Hindari kafein dan alkohol&#10;- Istirahat cukup (tidur 7-8 jam)&#10;- Olahraga ringan seperti jalan santai atau yoga&#10;- Makan makanan kaya zat besi (bayam, daging merah)&#10;- Ganti pembalut setiap 4-6 jam&#10;- Mandi air hangat untuk relaksasi"/>
                         
-                        <Label text="Gejala umum:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
-                        <Label wrapText="true" text="- Kram&#10;- Mood swing&#10;- Lelah"/>
+                        <Label text="Gejala Sebelum Menstruasi (PMS):" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Kram perut atau nyeri punggung bawah&#10;- Payudara terasa kencang atau nyeri&#10;- Mood swing (mudah marah, sedih, atau cemas)&#10;- Kembung dan perut terasa penuh&#10;- Jerawat muncul&#10;- Lelah dan lemas&#10;- Sakit kepala&#10;- Nafsu makan meningkat (ngidam makanan manis/asin)&#10;- Sulit tidur"/>
+                        
+                        <Label text="Gejala Saat Menstruasi:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Kram perut (dismenore)&#10;- Pendarahan (2-7 hari)&#10;- Mood swing&#10;- Lelah dan energi rendah&#10;- Nyeri punggung bawah&#10;- Diare atau sembelit"/>
+                        
+                        <Label text="Cara Merawat Diri Saat Menstruasi:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="Kebersihan:&#10;- Ganti pembalut setiap 4-6 jam (atau lebih sering jika perlu)&#10;- Cuci area kewanitaan dengan air bersih (dari depan ke belakang)&#10;- Gunakan sabun pembersih khusus area sensitif (pH balanced)&#10;- Gunakan pakaian dalam berbahan katun yang menyerap keringat&#10;- Hindari douching (menyemprot ke dalam vagina)"/>
+                        
+                        <Label wrapText="true" text="Kenyamanan:&#10;- Pakai pakaian longgar dan nyaman&#10;- Gunakan bantal pemanas atau botol air hangat untuk kram&#10;- Tidur dengan posisi meringkuk (fetal position) untuk redakan kram&#10;- Gunakan alas tidur tambahan jika takut bocor&#10;- Bawa pembalut cadangan saat bepergian"/>
+                        
+                        <Label wrapText="true" text="Kesehatan Mental:&#10;- Luangkan waktu untuk me-time dan istirahat&#10;- Lakukan aktivitas yang menenangkan (membaca, mendengar musik)&#10;- Jangan ragu untuk mengatakan tidak pada aktivitas berat&#10;- Komunikasikan perasaanmu pada orang terdekat&#10;- Praktikkan breathing exercise atau meditasi ringan"/>
+                        
+                        <Label wrapText="true" text="Hidrasi dan Nutrisi:&#10;- Minum air putih minimal 8 gelas per hari&#10;- Konsumsi makanan hangat dan mudah dicerna&#10;- Hindari makanan pedas, berlemak tinggi, dan terlalu asin&#10;- Minum teh herbal (chamomile, jahe, peppermint)&#10;- Konsumsi dark chocolate untuk mood booster (dalam jumlah wajar)"/>
                     </VBox>
                 </TitledPane>
                 
