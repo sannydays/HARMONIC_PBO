@@ -2,28 +2,84 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
 
 <VBox alignment="TOP_CENTER" spacing="20" style="-fx-background-color: #fff0f6; -fx-padding: 20;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.app.hormontracker.controller.GuidebookController">
-    <Label text="Guidebook" textFill="#e75480">
+    <Label text="Guidebook Siklus Menstruasi" textFill="#e75480">
         <font><Font name="Arial Bold" size="24"/></font>
     </Label>
 
-    <Accordion fx:id="guideAccordion">
-        <panes>
-            <TitledPane text="Fase Menstruasi (Hari 1-5)">
-                <Label text="Kadar estrogen dan progesteron rendah. Dinding rahim meluruh. Energi cenderung rendah." wrapText="true"/>
-            </TitledPane>
-            <TitledPane text="Fase Folikular (Hari 6-13)">
-                <Label text="Estrogen mulai naik. Kulit lebih cerah, energi meningkat. Waktu yang baik untuk beraktivitas." wrapText="true"/>
-            </TitledPane>
-            <TitledPane text="Ovulasi (Hari 14)">
-                <Label text="Sel telur dilepaskan. Libido meningkat. Masa paling subur dalam siklus." wrapText="true"/>
-            </TitledPane>
-            <TitledPane text="Fase Luteal (Hari 15-28)">
-                <Label text="Progesteron dominan. Tubuh bersiap jika terjadi kehamilan. Jika tidak, PMS bisa muncul (mood swing, kram)." wrapText="true"/>
-            </TitledPane>
-        </panes>
-    </Accordion>
+    <ScrollPane fitToWidth="true" prefHeight="600" style="-fx-background-color: transparent;">
+        <Accordion fx:id="guideAccordion">
+            <panes>
+                <TitledPane text="Fase Menstruasi (Hari 1-5)">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <ImageView fitWidth="130" preserveRatio="true" image="@../assets/estrogen.png"/>
+                        
+                        <Label wrapText="true" text="Pada fase ini, kadar estrogen dan progesteron sangat rendah. Dinding rahim meluruh sehingga terjadi menstruasi. Energi biasanya menurun dan mood lebih sensitif."/>
+                        
+                        <Label text="Tips:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Minum air hangat&#10;- Kompres hangat&#10;- Hindari kafein&#10;- Istirahat cukup"/>
+                        
+                        <Label text="Gejala umum:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Kram&#10;- Mood swing&#10;- Lelah"/>
+                    </VBox>
+                </TitledPane>
+                
+                <TitledPane text="Fase Folikular (Hari 6-13)">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <ImageView fitWidth="130" preserveRatio="true" image="@../assets/fsh.png"/>
+                        
+                        <Label wrapText="true" text="Estrogen meningkat, energi naik, kulit lebih cerah. Ini adalah waktu yang baik untuk produktif dan beraktivitas."/>
+                        
+                        <Label text="Tips:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Olahraga intensitas sedang hingga tinggi&#10;- Produktif kerja/belajar&#10;- Makan protein tinggi&#10;- Manfaatkan energi tinggi"/>
+                    </VBox>
+                </TitledPane>
+                
+                <TitledPane text="Ovulasi (Hari 14)">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <ImageView fitWidth="130" preserveRatio="true" image="@../assets/lh.png"/>
+                        
+                        <Label wrapText="true" text="Sel telur dilepaskan. Estrogen puncak dan LH naik. Libido meningkat. Masa paling subur dalam siklus."/>
+                        
+                        <Label text="Tips:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Banyak minum air putih&#10;- Pakaian nyaman&#10;- Cocok untuk aktivitas sosial&#10;- Waktu yang baik untuk komunikasi"/>
+                    </VBox>
+                </TitledPane>
+                
+                <TitledPane text="Fase Luteal (Hari 15-28)">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <ImageView fitWidth="130" preserveRatio="true" image="@../assets/progesteron.png"/>
+                        
+                        <Label wrapText="true" text="Progesteron dominan. Tubuh bersiap jika terjadi kehamilan. Jika tidak, gejala PMS mungkin muncul (mood swing, kram)."/>
+                        
+                        <Label text="Gejala PMS:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Mood swing&#10;- Jerawat&#10;- Sensitif&#10;- Kembung&#10;- Kelelahan"/>
+                        
+                        <Label text="Tips:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                        <Label wrapText="true" text="- Kurangi makanan asin&#10;- Olahraga ringan seperti yoga&#10;- Konsumsi Vitamin B6 dan magnesium&#10;- Cukup tidur&#10;- Hindari stres berlebihan"/>
+                    </VBox>
+                </TitledPane>
+                
+                <TitledPane text="Informasi Tentang Hormon">
+                    <VBox spacing="10" style="-fx-padding: 10;">
+                        <Label text="Estrogen" style="-fx-font-weight:bold; -fx-text-fill:#d63384; -fx-font-size: 14px;"/>
+                        <Label wrapText="true" text="Hormon yang membuat mood stabil, kulit lebih cerah, dan energi meningkat. Mencapai puncak saat ovulasi."/>
+                        
+                        <Label text="Progesteron" style="-fx-font-weight:bold; -fx-text-fill:#d63384; -fx-font-size: 14px;"/>
+                        <Label wrapText="true" text="Mempersiapkan rahim untuk kehamilan. Dominan di fase luteal. Dapat menyebabkan gejala PMS."/>
+                        
+                        <Label text="FSH (Follicle Stimulating Hormone)" style="-fx-font-weight:bold; -fx-text-fill:#d63384; -fx-font-size: 14px;"/>
+                        <Label wrapText="true" text="Hormon yang mematangkan sel telur di ovarium selama fase folikular."/>
+                        
+                        <Label text="LH (Luteinizing Hormone)" style="-fx-font-weight:bold; -fx-text-fill:#d63384; -fx-font-size: 14px;"/>
+                        <Label wrapText="true" text="Memicu pelepasan sel telur (ovulasi) ketika mencapai puncaknya."/>
+                    </VBox>
+                </TitledPane>
+            </panes>
+        </Accordion>
+    </ScrollPane>
 
     <Button text="Back" onAction="#back" style="-fx-background-color: transparent; -fx-text-fill: #e75480; -fx-underline: true;"/>
 </VBox>
