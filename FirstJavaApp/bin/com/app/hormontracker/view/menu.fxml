@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="25" style="-fx-background-color: #fff0f6;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.app.hormontracker.controller.MenuController">
+    <Label fx:id="lblWelcome" text="Hi There ✿" textFill="#e75480">
+        <font><Font name="Arial Bold" size="28"/></font>
+    </Label>
+    <Label text="Apa yang ingin kamu cek hari ini?" textFill="#aaa"/>
+
+    <VBox spacing="15" maxWidth="320">
+        <Button text="😊 Mood Tracker" onAction="#navMood" maxWidth="Infinity" 
+                style="-fx-background-color: white; -fx-text-fill: #555; -fx-font-size: 16; -fx-padding: 15; -fx-background-radius: 12; -fx-border-color: #ffcce0; -fx-border-radius: 12; -fx-cursor: hand;"/>
+        
+        <Button text="🗓️ Calendar" onAction="#navCalendar" maxWidth="Infinity" 
+                style="-fx-background-color: white; -fx-text-fill: #555; -fx-font-size: 16; -fx-padding: 15; -fx-background-radius: 12; -fx-border-color: #ffcce0; -fx-border-radius: 12; -fx-cursor: hand;"/>
+        
+        <Button text="🔮 Phase Prediction" onAction="#navCycle" maxWidth="Infinity" 
+                style="-fx-background-color: white; -fx-text-fill: #555; -fx-font-size: 16; -fx-padding: 15; -fx-background-radius: 12; -fx-border-color: #ffcce0; -fx-border-radius: 12; -fx-cursor: hand;"/>
+                
+        <Button text="📖 Guidebook" onAction="#navGuide" maxWidth="Infinity" 
+                style="-fx-background-color: white; -fx-text-fill: #555; -fx-font-size: 16; -fx-padding: 15; -fx-background-radius: 12; -fx-border-color: #ffcce0; -fx-border-radius: 12; -fx-cursor: hand;"/>
+    </VBox>
+
+    <Button text="Logout" onAction="#navLogout" style="-fx-background-color: transparent; -fx-text-fill: #999; -fx-underline: true;"/>
+</VBox>

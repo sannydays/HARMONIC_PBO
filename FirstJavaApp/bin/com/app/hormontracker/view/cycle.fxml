@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="20" style="-fx-background-color: #fff0f6;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.app.hormontracker.controller.CycleController">
+    <Label text="Cycle Prediction" textFill="#e75480">
+        <font><Font name="Arial Bold" size="24"/></font>
+    </Label>
+
+    <StackPane>
+        <Circle fx:id="indicatorCircle" radius="90" fill="WHITE" stroke="#ff9ac1" strokeWidth="4"/>
+        <VBox alignment="CENTER">
+            <Label fx:id="lblDay" text="Day ?" textFill="#e75480" style="-fx-font-size: 28; -fx-font-weight: bold;"/>
+            <Label fx:id="lblPhase" text="..." textFill="#777" style="-fx-font-size: 14;"/>
+        </VBox>
+    </StackPane>
+
+    <Label fx:id="lblDetail" text="Loading details..." textAlignment="CENTER" wrapText="true" maxWidth="300"
+           style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);"/>
+
+    <Button text="Back to Menu" onAction="#back" style="-fx-background-color: transparent; -fx-text-fill: #e75480; -fx-underline: true;"/>
+</VBox>
