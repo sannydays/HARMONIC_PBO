@@ -76,6 +76,8 @@
                 
                 <TitledPane text="Informasi Tentang Hormon">
                     <VBox spacing="10" style="-fx-padding: 10;">
+                        <ImageView fitWidth="130" preserveRatio="true" image="@../assets/HORMON.png"/>
+                        
                         <Label text="Estrogen" style="-fx-font-weight:bold; -fx-text-fill:#d63384; -fx-font-size: 14px;"/>
                         <Label wrapText="true" text="Hormon yang membuat mood stabil, kulit lebih cerah, dan energi meningkat. Mencapai puncak saat ovulasi."/>
                         
@@ -95,3 +97,4 @@
 
     <Button text="Back" onAction="#back" style="-fx-background-color: transparent; -fx-text-fill: #e75480; -fx-underline: true;"/>
 </VBox>
+
