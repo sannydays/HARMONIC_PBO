@@ -1,0 +1,179 @@
+/* */
+/* === GLOBAL ROOT === */
+#root {
+    -fx-font-size: 14px; 
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.main-bg {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #ffe3ec);
+}
+
+/* Button
+
+    Tombol Utama (Pink Solid - Save, Login, dll) */
+.btn-primary {
+    -fx-background-color: #ff9ac1;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-background-radius: 20; 
+    -fx-cursor: hand;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 154, 193, 0.4), 10, 0, 0, 4);
+}
+.btn-primary:hover {
+    -fx-background-color: #ff85a2;
+}
+.btn-primary:pressed {
+    -fx-background-color: #e75480;
+    -fx-effect: none;
+}
+
+/* Tombol Back (Pill Shape - Putih outline Pink) */
+.btn-back {
+    -fx-background-color: white;
+    -fx-text-fill: #ff85a2;
+    -fx-font-weight: bold;
+    -fx-font-size: 1em;
+    -fx-background-radius: 25;
+    -fx-border-color: #ff85a2;
+    -fx-border-radius: 25;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 8 25;
+}
+.btn-back:hover {
+    -fx-background-color: #ffeff4;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 133, 162, 0.2), 5, 0, 0, 2);
+}
+
+/* Tombol Navigasi Bulat (< >) */
+.btn-nav {
+    -fx-background-color: white;
+    -fx-text-fill: #ff85a2;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.2em;
+    -fx-background-radius: 50%; 
+    -fx-border-radius: 50%;
+    -fx-min-width: 40px; 
+    -fx-min-height: 40px;
+    -fx-max-width: 40px;
+    -fx-max-height: 40px;
+    -fx-border-color: #ffcce0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+    -fx-alignment: CENTER;
+    -fx-padding: 0; /* Penting agar text di tengah */
+}
+.btn-nav:hover {
+    -fx-background-color: #ffeff4;
+    -fx-scale-x: 1.1; 
+    -fx-scale-y: 1.1;
+}
+
+/* === MENU BUTTONS (KOTAK BESAR) === */
+.menu-btn {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-content-display: TOP;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.03), 10, 0, 0, 5);
+    -fx-font-size: 1.1em;
+}
+.menu-btn:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+    -fx-translate-y: -2;
+}
+
+/* === GUIDEBOOK === */
+.guide-image {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+    -fx-arc-height: 20;
+    -fx-arc-width: 20;
+}
+
+/* Hilangkan background default accordion */
+.accordion {
+    -fx-background-color: transparent;
+}
+
+/* Style untuk setiap Kartu (TitledPane) */
+.accordion .titled-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 10 0; /* Jarak antar kartu */
+}
+
+/* Bagian Judul (Header Kartu) */
+.accordion .titled-pane > .title {
+    -fx-background-color: white;
+    -fx-border-color: #ffcce0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 15;   /* Sudut sangat bulat */
+    -fx-background-radius: 15;
+    -fx-padding: 12 15;      /* Padding lebih lega */
+    -fx-font-weight: bold;
+    -fx-text-fill: #ff85a2;  /* Pink manis */
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 182, 193, 0.3), 8, 0, 0, 4); /* Bayangan soft */
+}
+
+/* Efek saat mouse hover di judul */
+.accordion .titled-pane > .title:hover {
+    -fx-background-color: #fff0f5; /* Sedikit pink saat disentuh */
+}
+
+/* Bagian Isi Konten (Saat dibuka) */
+.accordion .titled-pane > .content {
+    -fx-background-color: rgba(255, 255, 255, 0.6); /* Transparan dikit (Glass) */
+    -fx-background-radius: 0 0 15 15; /* Bulat bawah */
+    -fx-border-color: transparent;
+    -fx-border-radius: 0 0 15 15;
+    -fx-padding: 15;
+    -fx-text-fill: black !important; /* Teks Hitam Jelas */
+}
+
+/* Panah kecil di kanan */
+.accordion .titled-pane > .title > .arrow-button .arrow {
+    -fx-background-color: #ff85a2;
+}
+/* === CUSTOM ALERT / DIALOG STYLE === */
+
+.custom-alert {
+    -fx-background-color: white; /* Warna dasar Putih */
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #ffcce0;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+
+.custom-alert > .header-panel, 
+.custom-alert > .button-bar,
+.custom-alert .dialog-pane {
+    -fx-background-color: transparent; 
+}
+
+.custom-alert .label.content {
+    -fx-text-fill: #555;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10;
+}
+
+.custom-alert .button-bar .button {
+    -fx-background-color: #ff9ac1;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+}
+
+.custom-alert .button-bar .button:hover {
+    -fx-background-color: #ff85a2;
+}

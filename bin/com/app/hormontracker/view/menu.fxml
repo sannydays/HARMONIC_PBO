@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: #fff0f6;" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+            fx:controller="com.app.hormontracker.controller.MenuController">
+    <content>
+        <VBox alignment="TOP_CENTER" spacing="25" minHeight="750" 
+              style="-fx-background-color: #fff0f6; -fx-padding: 30;">
+            
+            <VBox spacing="5" alignment="CENTER_LEFT" maxWidth="Infinity">
+                <Label fx:id="lblWelcome" text="Hi, Bestie! ✨" textFill="#e75480">
+                    <font><Font name="Arial Bold" size="28"/></font>
+                </Label>
+                <Label text="Track your vibe &amp; cycle today!" textFill="#aaa"/>
+            </VBox>
+            
+            <GridPane hgap="15" vgap="15" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                    <ColumnConstraints percentWidth="50" hgrow="ALWAYS"/>
+                </columnConstraints>
+                
+                <Button fx:id="btnMood" text="Mood&#10;Check" onAction="#navMood" 
+                        GridPane.columnIndex="0" GridPane.rowIndex="0" 
+                        maxWidth="Infinity" prefHeight="140" styleClass="menu-btn"
+                        style="-fx-border-color: #ffcce0; -fx-text-fill: #ff9ac1;">
+                    <graphic>
+                        <Label text="🥰" style="-fx-font-size: 40; -fx-font-family: 'Segoe UI Emoji';"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnCalendar" text="My&#10;Calendar" onAction="#navCalendar" 
+                        GridPane.columnIndex="1" GridPane.rowIndex="0" 
+                        maxWidth="Infinity" prefHeight="140" styleClass="menu-btn"
+                        style="-fx-border-color: #a0d4ff; -fx-text-fill: #74b9ff;">
+                    <graphic>
+                        <Label text="🗓️" style="-fx-font-size: 40; -fx-font-family: 'Segoe UI Emoji';"/>
+                    </graphic>
+                </Button>
+                
+                <Button fx:id="btnCycle" text="Cycle&#10;Predict" onAction="#navCycle" 
+                        GridPane.columnIndex="0" GridPane.rowIndex="1" 
+                        maxWidth="Infinity" prefHeight="140" styleClass="menu-btn"
+                        style="-fx-border-color: #dcd6f7; -fx-text-fill: #a29bfe;">
+                    <graphic>
+                        <Label text="🔮" style="-fx-font-size: 40; -fx-font-family: 'Segoe UI Emoji';"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnGuide" text="Girl&#10;Guide" onAction="#navGuide" 
+                        GridPane.columnIndex="1" GridPane.rowIndex="1" 
+                        maxWidth="Infinity" prefHeight="140" styleClass="menu-btn"
+                        style="-fx-border-color: #b7eb8f; -fx-text-fill: #95de64;">
+                    <graphic>
+                        <Label text="📖" style="-fx-font-size: 40; -fx-font-family: 'Segoe UI Emoji';"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnWeekly" text="Weekly&#10;Mood" onAction="#navChart" 
+                        GridPane.columnIndex="0" GridPane.rowIndex="2" 
+                        maxWidth="Infinity" prefHeight="140" styleClass="menu-btn"
+                        style="-fx-border-color: #ec8b65ff; -fx-text-fill: #ec8b65ff;">
+                    <graphic>
+                        <Label text="📊" style="-fx-font-size: 40; -fx-font-family: 'Segoe UI Emoji';"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnPeriod" text="Period&#10;Tracker" onAction="#navPeriod" 
+                        GridPane.columnIndex="1" GridPane.rowIndex="2" 
+                        maxWidth="Infinity" prefHeight="140" styleClass="menu-btn"
+                        style="-fx-border-color: #ff9ac1; -fx-text-fill: #ff9ac1;">
+                    <graphic>
+                        <Label text="🩸" style="-fx-font-size: 40; -fx-font-family: 'Segoe UI Emoji';"/>
+                    </graphic>
+                </Button>
+            </GridPane>
+            
+            <Region VBox.vgrow="ALWAYS" />
+
+            <Button text="Log Out" onAction="#navLogout" 
+                    style="-fx-background-color: transparent; -fx-text-fill: #ff6b6b; -fx-font-weight: bold; -fx-cursor: hand; -fx-border-color: #ff6b6b; -fx-border-radius: 20; -fx-border-width: 1; -fx-padding: 8 25;"/>
+        </VBox>
+    </content>
+</ScrollPane>

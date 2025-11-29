@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="25" style="-fx-background-color: #fff0f6; -fx-padding: 30;" stylesheets="@style.css"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.app.hormontracker.controller.PeriodController">
+
+    <Label text="Period Log 🩸" textFill="#faaac2ff">
+        <font><Font name="Arial Bold" size="28"/></font>
+    </Label>
+    
+    <Label text="Select date when you were in period era" textFill="#aaa" style="-fx-font-style: italic;"/>
+
+    <VBox spacing="15" alignment="CENTER" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);">
+        
+        <Label text="Select Date:" textFill="#e75480" style="-fx-font-weight: bold;"/>
+        
+        <DatePicker fx:id="dpPeriod" promptText="Pick a date" 
+                    style="-fx-background-radius: 10; -fx-border-color: #ffcce0; -fx-border-radius: 10; -fx-padding: 5;"/>
+        
+        <Button text="Save Date" onAction="#savePeriod" maxWidth="Infinity" styleClass="btn-primary"/>
+    </VBox>
+
+    <Button text="Back to Home 🏠" onAction="#backToMenu" styleClass="btn-back"/>
+</VBox>

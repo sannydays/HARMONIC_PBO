@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainLayout" stylesheets="@style.css" styleClass="main-bg"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+            fx:controller="com.app.hormontracker.controller.GuidebookController">
+
+    <VBox alignment="TOP_CENTER" spacing="0" 
+          AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" 
+          AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="120">
+        
+        <VBox alignment="CENTER" spacing="5" style="-fx-padding: 20 15 10 15;">
+            <Label text="Cycle Era 💅✨" styleClass="title-text" style="-fx-font-size: 26px;"/> 
+            <Label text="Bestie's Guide biar ga Tantrum 🤪" styleClass="subtitle-text" style="-fx-font-size: 14px;"/>
+        </VBox>
+
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;" 
+                    hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" pickOnBounds="false" VBox.vgrow="ALWAYS">
+            <content>
+                <VBox alignment="TOP_CENTER" style="-fx-padding: 10 20 20 20;">
+                    <Accordion fx:id="guideAccordion">
+                        <panes>
+                            <TitledPane text="Menstruasi (Day 1-5) 🩸" animated="true">
+                                <VBox spacing="15">
+                                    <HBox alignment="CENTER" style="-fx-padding: 10;">
+                                        <ImageView fitWidth="250" preserveRatio="true" styleClass="guide-image">
+                                            <Image url="@assets/estrogen.png"/>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label wrapText="true" text="Energi low bat, mood swing parah. Rahim lagi renovasi total, bestie." style="-fx-text-fill: black;"/>
+                                    <Separator/>
+                                    <Label text="💡 Self Care Era:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                                    <Label wrapText="true" text="• Teh anget is a must!&#10;• Kompres perut biar ga cranky.&#10;• Bobo cepet, jangan scroll TikTok mulu!" style="-fx-text-fill: black;"/>
+                                </VBox>
+                            </TitledPane>
+
+                            <TitledPane text="Folikular (Day 6-13) ✨" animated="true">
+                                <VBox spacing="15">
+                                    <HBox alignment="CENTER" style="-fx-padding: 10;">
+                                        <ImageView fitWidth="250" preserveRatio="true" styleClass="guide-image">
+                                            <Image url="@assets/fsh.png"/>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label wrapText="true" text="Estrogen naik! Kulit glowing, energi full, main character energy banget!" style="-fx-text-fill: black;"/>
+                                    <Separator/>
+                                    <Label text="💡 To-Do List:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                                    <Label wrapText="true" text="• Gas olahraga HIIT/Cardio.&#10;• Waktunya presentasi/nugas, otak lagi encer." style="-fx-text-fill: black;"/>
+                                </VBox>
+                            </TitledPane>
+
+                            <TitledPane text="Ovulasi (Day 14) 🥚" animated="true">
+                                <VBox spacing="15">
+                                    <HBox alignment="CENTER" style="-fx-padding: 10;">
+                                        <ImageView fitWidth="220" preserveRatio="true" styleClass="guide-image">
+                                            <Image url="@assets/lh.png"/>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label wrapText="true" text="Puncak kesuburan! Aura kecantikan lagi memancar maksimal." style="-fx-text-fill: black;"/>
+                                    <Separator/>
+                                    <Label text="💡 Tips:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                                    <Label wrapText="true" text="• Stay hydrated!&#10;• Cocok buat hangout/dating (OOTD ter-badai)." style="-fx-text-fill: black;"/>
+                                </VBox>
+                            </TitledPane>
+
+                            <TitledPane text="Luteal (Day 15-28) 🌩️" animated="true">
+                                <VBox spacing="15">
+                                    <HBox alignment="CENTER" style="-fx-padding: 10;">
+                                        <ImageView fitWidth="220" preserveRatio="true" styleClass="guide-image">
+                                            <Image url="@assets/progesteron.png"/>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label wrapText="true" text="Siaga 1 PMS! Jerawat muncul, craving aneh-aneh, senggol bacok mode: ON." style="-fx-text-fill: black;"/>
+                                    <Separator/>
+                                    <Label text="💡 Survival Kit:" style="-fx-font-weight: bold; -fx-text-fill: #e75480;"/>
+                                    <Label wrapText="true" text="• Kurangi asin (biar ga bengkak).&#10;• Yoga chill aja.&#10;• Makan Dark Choco kalo lagi emosi." style="-fx-text-fill: black;"/>
+                                </VBox>
+                            </TitledPane>
+
+                            <TitledPane text="Siapa Pelakunya? 🧬" animated="true">
+                                <VBox spacing="15">
+                                    <HBox alignment="CENTER" style="-fx-padding: 10;">
+                                        <ImageView fitWidth="250" preserveRatio="true" styleClass="guide-image">
+                                            <Image url="@assets/HORMON.png"/>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label text="Kenali 'dalang' mood swing kamu:" style="-fx-font-weight:bold; -fx-text-fill: black;"/>
+                                    <VBox spacing="5">
+                                        <Label text="🌸 Estrogen: Si Bikin Glowing &amp; Happy." wrapText="true" style="-fx-text-fill: black;"/>
+                                        <Label text="🛡️ Progesteron: Si Mellow &amp; Ngantukan." wrapText="true" style="-fx-text-fill: black;"/>
+                                        <Label text="🥚 FSH: Pematang telur." wrapText="true" style="-fx-text-fill: black;"/>
+                                        <Label text="🚀 LH: Pemicu ovulasi." wrapText="true" style="-fx-text-fill: black;"/>
+                                    </VBox>
+                                </VBox>
+                            </TitledPane>
+                        </panes>
+                    </Accordion>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </VBox>
+
+    <StackPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" 
+               prefHeight="120" 
+               style="-fx-background-color: rgba(255,255,255,0.9); -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, -5, 0, 0); -fx-padding: 0 0 30 0;">
+        
+        <Button text="Back to Home 🏠" onAction="#backToMenu" styleClass="btn-back"/>
+        
+    </StackPane>
+
+</AnchorPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<StackPane style="-fx-background-color: #fff0f6;" stylesheets="@style.css" styleClass="main-bg"
+           xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.app.hormontracker.controller.MoodController">
+
+    <VBox fx:id="viewSelection" alignment="CENTER" spacing="30">
+        
+        <Label text="Vibe Check ✨" styleClass="title-text">
+            <font><Font name="Arial Bold" size="24"/></font>
+        </Label>
+
+        <FlowPane hgap="15" vgap="15" alignment="CENTER" prefWrapLength="300">
+            <Button text="🥰" onAction="#pickHappy"
+                    style="-fx-font-size: 35; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #ffcce0; -fx-border-radius: 20; -fx-cursor: hand;"/>
+            <Button text="😭" onAction="#pickSad"
+                    style="-fx-font-size: 35; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #a0d4ff; -fx-border-radius: 20; -fx-cursor: hand;"/>
+            <Button text="🤬" onAction="#pickAngry"
+                    style="-fx-font-size: 35; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #ff6b6b; -fx-border-radius: 20; -fx-cursor: hand;"/>
+            <Button text="🫠" onAction="#pickTired"
+                    style="-fx-font-size: 35; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #dcd6f7; -fx-border-radius: 20; -fx-cursor: hand;"/>
+            <Button text="😵‍💫" onAction="#pickAnxious"
+                    style="-fx-font-size: 35; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #ffeaa7; -fx-border-radius: 20; -fx-cursor: hand;"/>
+            <Button text="🩸" onAction="#pickCramps"
+                    style="-fx-font-size: 35; -fx-background-radius: 20; -fx-background-color: white; -fx-border-color: #ff9ac1; -fx-border-radius: 20; -fx-cursor: hand;"/>
+        </FlowPane>
+
+        <Button text="Back to Home 🏠" onAction="#backToMenu" styleClass="btn-back"/>
+    </VBox>
+
+    <VBox fx:id="viewNote" visible="false" alignment="CENTER" spacing="15" style="-fx-padding: 30;">
+        <Label fx:id="lblSelectedEmoji" style="-fx-font-size: 60;"/>
+
+        <Label text="Mood Level (1-5)" textFill="#e75480" style="-fx-font-weight: bold;"/>
+        
+        <Slider fx:id="slIntensity" min="1" max="5" value="3"
+                blockIncrement="1" majorTickUnit="1" minorTickCount="0"
+                snapToTicks="true" showTickMarks="true" showTickLabels="true"
+                styleClass="custom-slider"/>
+
+        <Label text="Spill the tea ☕" textFill="#e75480" style="-fx-font-weight: bold;"/>
+        <TextArea fx:id="taNote" promptText="Why do you feel this way?" prefRowCount="5" wrapText="true"
+                  style="-fx-background-radius: 10; -fx-border-color: #ffcce0; -fx-border-radius: 10;"/>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Change" onAction="#showSelectionView"
+                    style="-fx-background-color: white; -fx-border-color: #ddd; -fx-background-radius: 20; -fx-border-radius: 20; -fx-cursor: hand;"/>
+            
+            <Button text="Lock it in 🔒" onAction="#saveMood" styleClass="btn-primary"/>
+        </HBox>
+    </VBox>
+
+</StackPane>

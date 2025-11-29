@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<StackPane style="-fx-background-color: #fff0f6;" stylesheets="@style.css"
+           xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" 
+           fx:controller="com.app.hormontracker.controller.LoginController">
+    
+    <VBox fx:id="loginContainer" alignment="CENTER" spacing="20" maxWidth="350">
+        <Label text="HARMONICA ✨" textFill="#e75480"><font><Font name="Arial Bold" size="28"/></font></Label>
+        
+        <VBox style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);" spacing="15">
+            <Label text="Welcome Back!" textFill="#888"/>
+            <TextField fx:id="tfLoginUser" promptText="Username" styleClass="text-input"/>
+            <PasswordField fx:id="pfLoginPass" promptText="Password" styleClass="text-input"/>
+            <Label fx:id="lblLoginMsg" textFill="RED" style="-fx-font-size: 11px;"/>
+            
+            <Button text="Login" onAction="#actionLogin" maxWidth="Infinity" styleClass="btn-primary"/>
+        </VBox>
+        
+        <Hyperlink text="Create Account" onAction="#switchToRegister" textFill="#e75480"/>
+    </VBox>
+
+    <VBox fx:id="registerContainer" visible="false" alignment="CENTER" spacing="15" maxWidth="350">
+        <Label text="Join Us! 💖" textFill="#e75480"><font><Font name="Arial Bold" size="24"/></font></Label>
+        
+        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 5);" spacing="10">
+            <TextField fx:id="tfRegUser" promptText="Username" styleClass="text-input"/>
+            <TextField fx:id="tfRegEmail" promptText="Email" styleClass="text-input"/>
+            <PasswordField fx:id="pfRegPass" promptText="Password" styleClass="text-input"/>
+            <Separator style="-fx-background-color: #ffe0f0;"/>
+            <Label text="Cycle Info" textFill="#e75480" style="-fx-font-size: 11px;"/>
+            <HBox spacing="10"><TextField fx:id="tfRegCycle" promptText="Avg Cycle (28)" styleClass="text-input"/></HBox>
+            <DatePicker fx:id="dpRegLast" promptText="Last Period" maxWidth="Infinity" style="-fx-border-color: #ffcce0; -fx-background-radius: 10;"/>
+            <Label fx:id="lblRegMsg" textFill="RED" style="-fx-font-size: 10px;"/>
+            
+            <Button text="Sign Up" onAction="#actionRegister" maxWidth="Infinity" styleClass="btn-primary"/>
+        </VBox>
+        
+        <Hyperlink text="Back to Login" onAction="#switchToLogin" textFill="#e75480"/>
+    </VBox>
+</StackPane>
