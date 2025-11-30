@@ -68,11 +68,9 @@ public class FileService {
         }
     }
 
-    // ==== UPDATE START: SAVE MOOD DENGAN LEVEL ====
+    // Save Mood dgn level
     public void appendMood(MoodEntry m, String username) {
         try (BufferedWriter w = Files.newBufferedWriter(getMoodPath(username), StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
-            // Kita ambil levelnya. Jika MoodEntry biasa, getMoodLevel() return 0. 
-            // Jika IntensityMoodEntry, dia return 1-5.
             int level = m.getMoodLevel(); 
             
             // Format: DATE|TYPE|NOTE|LEVEL
@@ -82,9 +80,8 @@ public class FileService {
             e.printStackTrace(); 
         }
     }
-    // ==== UPDATE END ====
 
-    // ==== UPDATE START: LOAD MOOD DENGAN LEVEL ====
+    // Load Mood dengan level
     public List<MoodEntry> loadMoods(String username) {
         List<MoodEntry> list = new ArrayList<>();
         Path p = getMoodPath(username);
@@ -111,7 +108,7 @@ public class FileService {
                         }
                     }
 
-                    // Gunakan Polymorphism:
+                    // Polymorphism
                     // Jika ada level (>0), buat IntensityMoodEntry. Jika tidak, MoodEntry biasa.
                     if (level > 0) {
                         list.add(new IntensityMoodEntry(date, type, note, level));
@@ -125,7 +122,6 @@ public class FileService {
         }
         return list;
     }
-    // ==== UPDATE END ====
 
     // Period history
     public void addPeriodDate(String username, LocalDate date) {

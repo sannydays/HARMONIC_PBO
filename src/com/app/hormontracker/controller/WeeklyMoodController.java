@@ -1,7 +1,7 @@
 package com.app.hormontracker.controller;
 
 import com.app.hormontracker.model.mood.MoodEntry;
-import com.app.hormontracker.model.mood.MoodEffect; // Import Logic Effect
+import com.app.hormontracker.model.mood.MoodEffect; 
 import com.app.hormontracker.model.mood.MoodType;
 import com.app.hormontracker.service.FileService;
 import com.app.hormontracker.service.SessionManager;
@@ -11,10 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip; // Import Tooltip
+import javafx.scene.control.Tooltip; 
 import javafx.scene.layout.StackPane;
-import javafx.util.Duration; // Untuk durasi animasi tooltip
-
+import javafx.util.Duration; 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -88,32 +87,29 @@ public class WeeklyMoodController {
         chartWeeklyMood.getData().add(series);
     }
 
-    // Helper: Bikin Titik + Pasang Tooltip MoodEffect
+    // Helper untuk  Titik + Pasang Tooltip MoodEffect
     private StackPane createCustomNode(MoodEntry entry) {
-        // 1. Ambil Efek dari Logic MoodEffect
         MoodEffect effect = MoodEffect.create(entry.getType());
         int level = entry.getMoodLevel();
         
         String emoText = effect.emotionalEffect(level);
         String phyText = effect.physicalEffect();
 
-        // 2. Bikin Titik (Dot)
         StackPane dot = new StackPane();
         dot.setPrefSize(14, 14);
         dot.setMaxSize(14, 14);
         dot.setStyle("-fx-background-color: white, #ff9ebb; -fx-background-insets: 0, 3; -fx-background-radius: 20px;");
 
-        // 3. Bikin Label Emoji Melayang
+        // Label Emoji Melayang
         Label emoji = new Label(getEmojiForMood(entry.getType()));
         emoji.setStyle("-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';");
         emoji.setTranslateY(-25); 
 
-        // 4. Gabungin jadi satu container
+        // Gabung emoji dengan dot
         StackPane container = new StackPane(dot, emoji);
         container.setStyle("-fx-background-color: transparent; -fx-cursor: hand;");
         
-        // === BAGIAN UTAMA: TOOLTIP AESTHETIC ===
-        // Tooltip ini akan muncul saat user hover/klik titiknya
+        // Tooltip saat user hover/klik titiknya
         String tooltipText = String.format(
             "%s Level %d\n\n🧠 %s\n💪 %s\n\n📝 \"%s\"",
             entry.getType().name(), level, emoText, phyText, 
@@ -122,7 +118,7 @@ public class WeeklyMoodController {
 
         Tooltip tooltip = new Tooltip(tooltipText);
         
-        // Styling Tooltip biar Pink & Soft (Bukan kuning default Java)
+        // Styling Tooltip 
         tooltip.setStyle(
             "-fx-background-color: #fff0f6; " +
             "-fx-text-fill: #e75480; " +
@@ -138,7 +134,6 @@ public class WeeklyMoodController {
         tooltip.setShowDelay(Duration.millis(100)); // Muncul cepat
         tooltip.setHideDelay(Duration.millis(200));
         Tooltip.install(container, tooltip);
-        // =======================================
 
         // Mouse Hover Animation
         container.setOnMouseEntered(e -> {

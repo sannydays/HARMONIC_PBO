@@ -3,7 +3,9 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class LogicService {
-    public enum Phase { MENSTRUATION, FOLLICULAR, OVULATION, LUTEAL }
+    public enum Phase { 
+        MENSTRUATION, FOLLICULAR, OVULATION, LUTEAL 
+    }
 
     public static Phase predictPhase(LocalDate lastPeriod, int cycleLen, LocalDate today) {
         long daysSince = ChronoUnit.DAYS.between(lastPeriod, today);
