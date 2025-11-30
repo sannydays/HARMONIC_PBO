@@ -13,8 +13,8 @@
           styleClass="glass-card">
         
         <VBox alignment="CENTER" spacing="5">
-            <Label text="Weekly Mood Slider 🎢" styleClass="title-text"/>
-            <Label text="Swipe left/right to see your vibes!" styleClass="subtitle-text"/>
+            <Label text="Weekly Mood Chart 🎢" styleClass="title-text; -fx-font-family: 'Segoe UI Emoji';"/>
+            <Label text="Swipe left/right to see your weekly vibes!" styleClass="subtitle-text"/>
         </VBox>
 
         <HBox alignment="CENTER" spacing="20" style="-fx-padding: 10;">
