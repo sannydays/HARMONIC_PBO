@@ -29,13 +29,32 @@ public class MoodController {
         showSelectionView(); 
     }
 
-    @FXML private void pickHappy() { proceed(MoodType.HAPPY, "🥰"); }
-    @FXML private void pickSad() { proceed(MoodType.SAD, "😭"); }
-    @FXML private void pickAngry() { proceed(MoodType.ANGRY, "🤬"); } 
-    @FXML private void pickTired() { proceed(MoodType.TIRED, "🫠"); } 
-    @FXML private void pickAnxious() { proceed(MoodType.ANXIOUS, "😵‍💫"); } 
-    @FXML private void pickCramps() { proceed(MoodType.CRAMPS, "🩸"); }
+    // Memilih text dan emoji sesuai mood
+    @FXML private void pickHappy() { 
+        proceed(MoodType.HAPPY, "🥰"); 
+    }
 
+    @FXML private void pickSad() { 
+        proceed(MoodType.SAD, "😭"); 
+    }
+
+    @FXML private void pickAngry() { 
+        proceed(MoodType.ANGRY, "🤬"); 
+    }
+     
+    @FXML private void pickTired() { 
+        proceed(MoodType.TIRED, "🫠"); 
+    } 
+
+    @FXML private void pickAnxious() { 
+        proceed(MoodType.ANXIOUS, "😵‍💫"); 
+    }
+
+    @FXML private void pickCramps() { 
+        proceed(MoodType.CRAMPS, "🩸"); 
+    }
+
+    // Berpindah dari icon emoji ke next page yaitu slider lv mood dan note
     private void proceed(MoodType t, String e) {
         this.selectedMood = t;
         lblSelectedEmoji.setText(e);
@@ -43,6 +62,7 @@ public class MoodController {
         viewNote.setVisible(true);
     }
 
+    // Menyimpan mood
     @FXML private void saveMood() {
         if (selectedMood == null) 
             return;
@@ -55,13 +75,12 @@ public class MoodController {
             u
         );
 
-        // === UPDATE STYLE ALERT ===
+        // Dialog pane setelah user input dan lock change
         Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setTitle("Mood Saved 💖");
         a.setHeaderText(null);
         a.setContentText("Pssst, your mood Secured! <3");
 
-        // Load CSS ke dalam Alert
         DialogPane dialogPane = a.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("/com/app/hormontracker/view/style.css").toExternalForm());
         dialogPane.getStyleClass().add("custom-alert");
@@ -71,6 +90,7 @@ public class MoodController {
         backToMenu();
     }
     
+    // Kembali memilih emoji ketika user memilih 'change'
     @FXML private void showSelectionView() { 
         viewNote.setVisible(false); 
         viewSelection.setVisible(true); 

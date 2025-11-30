@@ -39,8 +39,8 @@ public class CalendarController {
     @FXML
     public void initialize() {
         if (dialogOverlay != null) {
+            // Dialog pop up
             dialogOverlay.setOnMouseClicked(e -> closePopup());
-            // Gelapkan sedikit background overlay biar popup makin 'pop'
             dialogOverlay.setStyle("-fx-background-color: rgba(0, 0, 0, 0.3);");
         }
         
@@ -143,20 +143,18 @@ public class CalendarController {
     private void showCustomPopup(LocalDate date, MoodEntry mood, boolean isPeriod) {
         dialogOverlay.getChildren().clear();
 
-        VBox dialogBox = new VBox(8); // Jarak antar elemen rapat
+        VBox dialogBox = new VBox(8); 
         dialogBox.setAlignment(Pos.CENTER);
         
-        // Set size pop up (Kecil/Compact)
         dialogBox.setMaxWidth(220); 
         dialogBox.setMaxHeight(Region.USE_PREF_SIZE);
-        
-        // Style dialog box (Pink Soft + Dashed Border)
+
         dialogBox.setStyle(
-            "-fx-background-color: #fff5f8;" + // Pink soft banget
+            "-fx-background-color: #fff5f8;" + 
             "-fx-background-radius: 20;" +
             "-fx-border-color: #ff9ac1;" +
             "-fx-border-width: 2px;" +
-            "-fx-border-style: dashed;" + // Garis putus-putus aesthetic
+            "-fx-border-style: dashed;" + 
             "-fx-border-radius: 20;" +
             "-fx-padding: 15;" +
             "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 10, 0, 0, 4);"
@@ -195,7 +193,7 @@ public class CalendarController {
             lblNote.setMaxWidth(190);
             lblNote.setStyle("-fx-text-fill: #666; -fx-font-size: 11px; -fx-font-style: italic; -fx-text-alignment: CENTER;");
             
-            // Garis pemisah tipis
+            // Garis pemisah 
             Region line = new Region();
             line.setMaxWidth(100);
             line.setPrefHeight(1);
@@ -205,7 +203,7 @@ public class CalendarController {
             noteContainer.setSpacing(5);
         }
 
-        // Tombol Close (Clean Style)
+        // Tombol Close 
         Button btnClose = new Button("Checked!");
         btnClose.setStyle(
             "-fx-background-color: transparent;" +
@@ -215,7 +213,7 @@ public class CalendarController {
             "-fx-cursor: hand;" +
             "-fx-padding: 5 10;"
         );
-        // Efek hover simple
+        
         btnClose.setOnMouseEntered(e -> btnClose.setStyle("-fx-background-color: #fff0f5; -fx-text-fill: #ff6b81; -fx-font-weight: bold; -fx-font-size: 12px; -fx-background-radius: 10; -fx-cursor: hand;"));
         btnClose.setOnMouseExited(e -> btnClose.setStyle("-fx-background-color: transparent; -fx-text-fill: #ff85a2; -fx-font-weight: bold; -fx-font-size: 12px; -fx-cursor: hand;"));
         
@@ -231,7 +229,7 @@ public class CalendarController {
         dialogOverlay.getChildren().add(dialogBox);
         dialogOverlay.setVisible(true);
 
-        // Animasi kinda bouncy
+        // Animation
         ScaleTransition st = new ScaleTransition(Duration.millis(500), dialogBox);
         st.setFromX(0.5); st.setFromY(0.5);
         st.setToX(1.0); st.setToY(1.0);
@@ -239,12 +237,16 @@ public class CalendarController {
         st.play();
     }
 
+    // Dialogpane ditutup
     private void closePopup() {
         dialogOverlay.setVisible(false);
     }
 
+    // Emoji sesuai mood saat itu
     private String getEmoji(MoodType t) {
-        if (t == null) return "😶";
+        if (t == null) {
+            return "😶";
+        }
         return switch (t) {
             case HAPPY -> "🥰";
             case SAD -> "😭";

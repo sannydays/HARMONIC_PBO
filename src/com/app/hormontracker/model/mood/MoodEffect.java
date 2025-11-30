@@ -3,9 +3,23 @@ package com.app.hormontracker.model.mood;
 public abstract class MoodEffect {
     public abstract String emotionalEffect(int level);
     public abstract String physicalEffect(int level);
+
+
+    public static MoodEffect create(MoodType type) {
+            return switch (type) {
+                case HAPPY -> new HappyEffect();
+                case SAD -> new SadEffect();
+                case ANGRY -> new AngryEffect();
+                case TIRED -> new TiredEffect();
+                case ANXIOUS -> new AnxiousEffect();
+                case CRAMPS -> new CrampsEffect();
+                default -> new HappyEffect(); // Default
+            };
+    }
 }
 
-// ==== CHILD CLASSES (NO PUBLIC keyword) ====
+// Inheritance dari mood yang ada dan memberikan keterangan sesuai level yang dipilih
+// physicalEffect untuk menampilkan keterangan dari mood ke fisik
 
 class HappyEffect extends MoodEffect {
     @Override

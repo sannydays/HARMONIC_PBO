@@ -1,7 +1,8 @@
 package com.app.hormontracker.controller;
 
 import com.app.hormontracker.model.mood.MoodEntry;
-import com.app.hormontracker.model.mood.MoodType; // Pastikan import ini ada
+import com.app.hormontracker.model.mood.MoodEffect; // Import Logic Effect
+import com.app.hormontracker.model.mood.MoodType;
 import com.app.hormontracker.service.FileService;
 import com.app.hormontracker.service.SessionManager;
 import javafx.collections.FXCollections;
@@ -10,7 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.chart.*;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane; // Import StackPane
+import javafx.scene.control.Tooltip; // Import Tooltip
+import javafx.scene.layout.StackPane;
+import javafx.util.Duration; // Untuk durasi animasi tooltip
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -63,21 +66,19 @@ public class WeeklyMoodController {
             LocalDate dateToCheck = currentWeekStart.plusDays(i);
             String dayName = dateToCheck.format(DateTimeFormatter.ofPattern("EEE")); 
 
-            Optional<MoodEntry> entry = allEntries.stream()
+            Optional<MoodEntry> entryOpt = allEntries.stream()
                     .filter(e -> e.getDate().equals(dateToCheck))
                     .reduce((first, second) -> second); 
 
-            if (entry.isPresent()) {
-                int level = entry.get().getMoodLevel();
-                MoodType type = entry.get().getType(); // Ambil tipe mood
+            if (entryOpt.isPresent()) {
+                MoodEntry entry = entryOpt.get();
+                int level = entry.getMoodLevel();
                 
                 // Buat Data Point
                 XYChart.Data<String, Number> data = new XYChart.Data<>(dayName, level);
                 
-                // --- BAGIAN AJAIBNYA DI SINI ---
-                // Kita set custom node (Titik + Emoji)
-                data.setNode(createCustomNode(type));
-                // -------------------------------
+                // Set Custom Node (Titik + Tooltip Effect)
+                data.setNode(createCustomNode(entry));
 
                 series.getData().add(data);
             }
@@ -87,40 +88,71 @@ public class WeeklyMoodController {
         chartWeeklyMood.getData().add(series);
     }
 
-    // Helper untuk bikin Emoji melayang di atas titik
-    private StackPane createCustomNode(MoodType type) {
-        // 1. Bikin Titik (Dot) Pink aesthetic
-        // Kita pakai StackPane kecil biar mirip CSS .chart-line-symbol
+    // Helper: Bikin Titik + Pasang Tooltip MoodEffect
+    private StackPane createCustomNode(MoodEntry entry) {
+        // 1. Ambil Efek dari Logic MoodEffect
+        MoodEffect effect = MoodEffect.create(entry.getType());
+        int level = entry.getMoodLevel();
+        
+        String emoText = effect.emotionalEffect(level);
+        String phyText = effect.physicalEffect(level);
+
+        // 2. Bikin Titik (Dot)
         StackPane dot = new StackPane();
         dot.setPrefSize(14, 14);
         dot.setMaxSize(14, 14);
-        // Style manual biar override default css dan pasti pink
         dot.setStyle("-fx-background-color: white, #ff9ebb; -fx-background-insets: 0, 3; -fx-background-radius: 20px;");
 
-        // 2. Bikin Label Emoji
-        Label emoji = new Label(getEmojiForMood(type));
+        // 3. Bikin Label Emoji Melayang
+        Label emoji = new Label(getEmojiForMood(entry.getType()));
         emoji.setStyle("-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';");
-        // Geser ke atas (Y negatif) biar melayang di atas titik
         emoji.setTranslateY(-25); 
 
-        // 3. Gabungin dalam satu container transparan
+        // 4. Gabungin jadi satu container
         StackPane container = new StackPane(dot, emoji);
-        container.setStyle("-fx-background-color: transparent;");
+        container.setStyle("-fx-background-color: transparent; -fx-cursor: hand;");
         
-        // PENTING: Mouse hover effect biar interaktif dikit
+        // === BAGIAN UTAMA: TOOLTIP AESTHETIC ===
+        // Tooltip ini akan muncul saat user hover/klik titiknya
+        String tooltipText = String.format(
+            "%s Level %d\n\n🧠 %s\n💪 %s\n\n📝 \"%s\"",
+            entry.getType().name(), level, emoText, phyText, 
+            (entry.getNote().isEmpty() ? "-" : entry.getNote())
+        );
+
+        Tooltip tooltip = new Tooltip(tooltipText);
+        
+        // Styling Tooltip biar Pink & Soft (Bukan kuning default Java)
+        tooltip.setStyle(
+            "-fx-background-color: #fff0f6; " +
+            "-fx-text-fill: #e75480; " +
+            "-fx-font-size: 12px; " +
+            "-fx-background-radius: 10px; " +
+            "-fx-border-color: #ffcce0; " +
+            "-fx-border-width: 2px; " +
+            "-fx-border-radius: 10px; " +
+            "-fx-padding: 10px; " +
+            "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);"
+        );
+        
+        tooltip.setShowDelay(Duration.millis(100)); // Muncul cepat
+        tooltip.setHideDelay(Duration.millis(200));
+        Tooltip.install(container, tooltip);
+        // =======================================
+
+        // Mouse Hover Animation
         container.setOnMouseEntered(e -> {
-            dot.setStyle("-fx-background-color: #ff9ebb, white; -fx-background-insets: 0, 3; -fx-background-radius: 20px; -fx-cursor: hand;");
-            emoji.setScaleX(1.5); emoji.setScaleY(1.5); // Emoji membesar pas di hover
+            dot.setStyle("-fx-background-color: #ff9ebb, white; -fx-background-insets: 0, 3; -fx-background-radius: 20px;");
+            emoji.setScaleX(1.5); emoji.setScaleY(1.5);
         });
         container.setOnMouseExited(e -> {
             dot.setStyle("-fx-background-color: white, #ff9ebb; -fx-background-insets: 0, 3; -fx-background-radius: 20px;");
-            emoji.setScaleX(1.0); emoji.setScaleY(1.0); // Balik normal
+            emoji.setScaleX(1.0); emoji.setScaleY(1.0);
         });
 
         return container;
     }
 
-    // Helper untuk translate ENUM ke String Emoji
     private String getEmojiForMood(MoodType type) {
         if (type == null) return "❓";
         return switch (type) {
@@ -130,7 +162,6 @@ public class WeeklyMoodController {
             case TIRED -> "🫠";
             case ANXIOUS -> "😵‍💫";
             case CRAMPS -> "🩸";
-            default -> "😶";
         };
     }
 

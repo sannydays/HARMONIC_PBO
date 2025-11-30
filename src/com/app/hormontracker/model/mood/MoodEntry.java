@@ -13,12 +13,18 @@ public class MoodEntry {
         this.note = note;
     }
 
-    public LocalDate getDate() { return date; }
-    public MoodType getType() { return type; }
-    public String getNote() { return note; }
+    // Getter
+    public LocalDate getDate() { 
+        return date; 
+    }
+    public MoodType getType() { 
+        return type; 
+    }
+    public String getNote() { 
+        return note; 
+    }
 
-    // TAMBAHAN PENTING: Method ini harus ada agar Controller bisa membacanya
-    // Subclass (IntensityMoodEntry) akan meng-override method ini
+    // Subclass (IntensityMoodEntry) akan override method ini
     public int getMoodLevel() {
         return 0; 
     }
