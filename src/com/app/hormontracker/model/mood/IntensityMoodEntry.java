@@ -11,7 +11,7 @@ public class IntensityMoodEntry extends MoodEntry {
     }
 
     @Override
-    public int getMoodLevel() { // Setter untuk mengakses intensitas mood
+    public int getMoodLevel() { // Getter untuk mengakses intensitas mood
         return intensity;
     }
 }
