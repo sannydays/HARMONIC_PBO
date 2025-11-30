@@ -104,7 +104,7 @@ public class CalendarController {
             
             boolean isPeriod = periods.contains(date);
             boolean isToday = date.equals(LocalDate.now());
-            MoodEntry mood = moods.stream().filter(m -> m.getDate().equals(date)).findFirst().orElse(null);
+            MoodEntry mood = moods.stream().filter(m -> m.getDate().equals(date)) .reduce((first, second) -> second).orElse(null);
 
             applyCellStyle(cell, isPeriod, mood != null, isToday);
 
