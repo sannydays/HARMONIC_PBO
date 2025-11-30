@@ -95,7 +95,7 @@ public class WeeklyMoodController {
         int level = entry.getMoodLevel();
         
         String emoText = effect.emotionalEffect(level);
-        String phyText = effect.physicalEffect(level);
+        String phyText = effect.physicalEffect();
 
         // 2. Bikin Titik (Dot)
         StackPane dot = new StackPane();

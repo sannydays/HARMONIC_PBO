@@ -2,7 +2,7 @@ package com.app.hormontracker.model.mood;
 
 public abstract class MoodEffect {
     public abstract String emotionalEffect(int level);
-    public abstract String physicalEffect(int level);
+    public abstract String physicalEffect();
 
 
     public static MoodEffect create(MoodType type) {
@@ -34,7 +34,7 @@ class HappyEffect extends MoodEffect {
     }
 
     @Override
-    public String physicalEffect(int level) {
+    public String physicalEffect() {
         return "Lower stress hormone, relaxed muscles.";
     }
 }
@@ -52,7 +52,7 @@ class SadEffect extends MoodEffect {
     }
 
     @Override
-    public String physicalEffect(int level) {
+    public String physicalEffect() {
         return "Low energy, heavy chest.";
     }
 }
@@ -70,7 +70,7 @@ class AngryEffect extends MoodEffect {
     }
 
     @Override
-    public String physicalEffect(int level) {
+    public String physicalEffect() {
         return "High tension, increased heart rate.";
     }
 }
@@ -82,7 +82,7 @@ class TiredEffect extends MoodEffect {
     }
 
     @Override
-    public String physicalEffect(int level) {
+    public String physicalEffect() {
         return "Fatigue, weak muscles, low stamina.";
     }
 }
@@ -94,7 +94,7 @@ class AnxiousEffect extends MoodEffect {
     }
 
     @Override
-    public String physicalEffect(int level) {
+    public String physicalEffect() {
         return "Fast heartbeat, dizziness, tense muscles.";
     }
 }
@@ -106,7 +106,7 @@ class CrampsEffect extends MoodEffect {
     }
 
     @Override
-    public String physicalEffect(int level) {
+    public String physicalEffect() {
         return "Uterine contractions and period cramps 🩸";
     }
 }
